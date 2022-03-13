@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: ${APPLICATION_NAME}
+  server:
+    port: ${PORT:8080}
+    cors:
+      enabled: true
+  io:
+    watch:
+      paths: src/main
+      restart: true
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+    details-visible: never
+
+jackson:
+  serialization-inclusion: non_null

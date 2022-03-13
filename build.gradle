@@ -1,0 +1,87 @@
+plugins {
+    id "java-library"
+    id "maven-publish"
+    id "org.jetbrains.kotlin.jvm" version "${kotlinVersion}"
+    id "org.jetbrains.kotlin.kapt" version "${kotlinVersion}"
+    id "org.jetbrains.kotlin.plugin.allopen" version "${kotlinVersion}"
+    id "com.github.ben-manes.versions" version "${gradleVersionCheckVersion}"
+    id "io.micronaut.application" version "${micronautGradlePluginVersion}"
+}
+
+version = "0.0.1"
+group = "hu.indicium.dev.services"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut:micronaut-http-validation"
+
+    api "io.micronaut:micronaut-http-client"
+    api "io.micronaut:micronaut-jackson-databind"
+    api "io.micronaut:micronaut-runtime"
+    api "io.micronaut:micronaut-validation"
+    api "io.micronaut:micronaut-management"
+    api "io.micronaut.kotlin:micronaut-kotlin-runtime"
+
+    runtimeOnly "ch.qos.logback:logback-classic"
+}
+
+
+application {
+    mainClass.set("hu.indicium.dev.services.Application")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+}
+
+graalvmNative.toolchainDetection = false
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("hu.indicium.dev.services.*")
+    }
+}
+
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+            javaParameters = true
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+            javaParameters = true
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from sourceSets.main.allSource
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "skeleton"
+            from components.java
+            artifact sourcesJar
+        }
+    }
+}
+
+jar {
+    into("META-INF/maven/$project.group/$project.name") {
+        from { generatePomFileForMavenJavaPublication }
+        rename ".*", "pom.xml"
+    }
+}
