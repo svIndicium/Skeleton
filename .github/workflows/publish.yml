@@ -1,0 +1,9 @@
+name: Gradle Publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    uses: svIndicium/Workflows/gradle/publish.yml

@@ -8,7 +8,7 @@ plugins {
     id "io.micronaut.application" version "${micronautGradlePluginVersion}"
 }
 
-version = "0.0.1"
+version = "${skeletonVersion}"
 group = "hu.indicium.dev.services"
 
 repositories {
