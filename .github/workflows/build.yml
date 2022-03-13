@@ -5,4 +5,4 @@ on:
 
 jobs:
   build:
-    uses: svIndicium/Workflows/gradle/build.yml@master
+    uses: svIndicium/Workflows/.github/workflows/gradle-build.yml@master
