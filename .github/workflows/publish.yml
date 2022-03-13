@@ -6,4 +6,4 @@ on:
 
 jobs:
   build:
-    uses: svIndicium/Workflows/gradle/publish.yml
+    uses: svIndicium/Workflows/gradle/publish.yml@master
