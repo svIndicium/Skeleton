@@ -17,15 +17,23 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-inject-java"
-    annotationProcessor "io.micronaut:micronaut-http-validation"
+    api 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor "org.projectlombok:lombok:1.18.22"
+
+    kapt 'io.micronaut:micronaut-validation'
+    kapt "io.micronaut:micronaut-inject-java"
+    kapt "io.micronaut:micronaut-http-validation"
+    kapt "io.micronaut.data:micronaut-data-processor"
 
     api "io.micronaut:micronaut-http-client"
     api "io.micronaut:micronaut-jackson-databind"
     api "io.micronaut:micronaut-runtime"
     api "io.micronaut:micronaut-validation"
     api "io.micronaut:micronaut-management"
-    api "io.micronaut.kotlin:micronaut-kotlin-runtime"
+    api "io.micronaut.data:micronaut-data-jdbc"
+    compileOnly "io.micronaut.kotlin:micronaut-kotlin-runtime"
+
+    api "io.micronaut.beanvalidation:micronaut-hibernate-validator"
 
     runtimeOnly "ch.qos.logback:logback-classic"
 }
