@@ -17,34 +17,32 @@ repositories {
 }
 
 dependencies {
-    api 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor "org.projectlombok:lombok:1.18.22"
-
     kapt 'io.micronaut:micronaut-validation'
     kapt "io.micronaut:micronaut-inject-java"
     kapt "io.micronaut:micronaut-http-validation"
-    kapt "io.micronaut.data:micronaut-data-processor"
+    annotationProcessor "io.micronaut.data:micronaut-data-processor"
 
     api "io.micronaut:micronaut-http-client"
     api "io.micronaut:micronaut-jackson-databind"
     api "io.micronaut:micronaut-runtime"
     api "io.micronaut:micronaut-validation"
     api "io.micronaut:micronaut-management"
-    api "io.micronaut.data:micronaut-data-jdbc"
     compileOnly "io.micronaut.kotlin:micronaut-kotlin-runtime"
 
     api "io.micronaut.beanvalidation:micronaut-hibernate-validator"
 
     runtimeOnly "ch.qos.logback:logback-classic"
-}
 
+
+    annotationProcessor "io.micronaut:micronaut-http-validation"
+    api "io.micronaut.mongodb:micronaut-mongo-reactive"
+    api "io.micronaut.reactor:micronaut-reactor"
+    api "io.micronaut.reactor:micronaut-reactor-http-client"
+    api "jakarta.annotation:jakarta.annotation-api"
+}
 
 application {
     mainClass.set("hu.indicium.dev.services.Application")
-}
-
-java {
-    sourceCompatibility = JavaVersion.toVersion("11")
 }
 
 graalvmNative.toolchainDetection = false
