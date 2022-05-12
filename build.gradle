@@ -28,6 +28,8 @@ dependencies {
     api "io.micronaut:micronaut-validation"
     api "io.micronaut:micronaut-management"
     compileOnly "io.micronaut.kotlin:micronaut-kotlin-runtime"
+    api "org.litote.kmongo:kmongo:$kmongoVersion"
+    api "org.litote.kmongo:kmongo-coroutine:$kmongoVersion"
 
     api "io.micronaut.beanvalidation:micronaut-hibernate-validator"
 

@@ -18,3 +18,7 @@ endpoints:
 
 jackson:
   serialization-inclusion: non_null
+
+mongodb:
+  uri: ${MONGO_URI}
+  database: ${MONGO_DATABASE}
