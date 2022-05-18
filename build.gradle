@@ -27,6 +27,8 @@ dependencies {
     api "io.micronaut:micronaut-runtime"
     api "io.micronaut:micronaut-validation"
     api "io.micronaut:micronaut-management"
+    api "io.micronaut.security:micronaut-security"
+    api "io.micronaut.security:micronaut-security-jwt"
     compileOnly "io.micronaut.kotlin:micronaut-kotlin-runtime"
     api "org.litote.kmongo:kmongo:$kmongoVersion"
     api "org.litote.kmongo:kmongo-coroutine:$kmongoVersion"
@@ -35,12 +37,19 @@ dependencies {
 
     runtimeOnly "ch.qos.logback:logback-classic"
 
-
     annotationProcessor "io.micronaut:micronaut-http-validation"
     api "io.micronaut.mongodb:micronaut-mongo-reactive"
     api "io.micronaut.reactor:micronaut-reactor"
     api "io.micronaut.reactor:micronaut-reactor-http-client"
     api "jakarta.annotation:jakarta.annotation-api"
+
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$kotlinxVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:$kotlinxVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kotlinxVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.8"
 }
 
 application {

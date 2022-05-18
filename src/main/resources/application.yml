@@ -8,7 +8,23 @@ micronaut:
   io:
     watch:
       paths: src/main
-      restart: true
+      restart:
+  security:
+    enabled: true
+    authentication: bearer
+    endpoints:
+      writer:
+        header:
+          enabled: true
+      propagation:
+        enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            generator:
+              secret: ${JWT_SECRET:Indicium-Development-JWT-Secret}
 
 endpoints:
   health:
