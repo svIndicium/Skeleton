@@ -7,7 +7,7 @@ ext {
     kotlinxVersion = "1.6.0"
     kotlinxCoreCommonVersion = "1.3.8"
 
-    kmongoVersion = "4.5.1"
+    kmongoVersion = "4.6.0"
 
     supportDependencies = [
             micronaut_validation: "io.micronaut:micronaut-validation",
