@@ -1,6 +1,6 @@
 ext {
     micronautVersion = "3.4.3"
-    micronautGradlePluginVersion = "3.3.2"
+    micronautGradlePluginVersion = "3.4.0"
     gradleVersionCheckVersion = "0.42.0"
 
     kotlinVersion = "1.6.21"
