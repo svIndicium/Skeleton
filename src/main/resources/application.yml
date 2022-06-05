@@ -34,6 +34,8 @@ endpoints:
 
 jackson:
   serialization-inclusion: non_null
+  serialization:
+    writeDatesAsTimestamps: true
 
 mongodb:
   uri: ${MONGO_URI}
